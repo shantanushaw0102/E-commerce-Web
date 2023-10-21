@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const Contact = () => {
@@ -33,7 +34,11 @@ const Contact = () => {
     }
   `;
 
-  return <Wrapper></Wrapper>;
+  return <Wrapper>
+    <h1>
+      contact page
+    </h1>
+  </Wrapper>;
 };
 
 export default Contact;
