@@ -2,11 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles/Button";
-import storeimg from "../assets/images/storeimg.jpeg";
 // import { AiFillApple } from "react-icons/ai";
 
 const HeroSection = ({ myData }) => {
-  const { name, description } = myData;
+  const { name, description , storeImg} = myData;
   return (
     <Wrapper>
       <div className="container">
@@ -25,8 +24,8 @@ const HeroSection = ({ myData }) => {
           <div className="hero-section-image">
             <figure>
               <img
-                src={storeimg}
-                alt="hero-section-image"
+                src={storeImg}
+                alt="hero-section-img"
                 className="img-style"
               />
             </figure>
