@@ -4,7 +4,7 @@ import { useFilterContext } from "../context/FilterContext";
 
 const FilterSection = () => {
   const {
-    filters: { text },
+    filters: { text, category },
     all_products,
     updateFilterValue,
   } = useFilterContext();
@@ -15,7 +15,7 @@ const FilterSection = () => {
     let newVal = data.map((curElem) => {
       return curElem[property];
     });
-    newVal = ["All",...new Set(newVal)];
+    return (newVal = ["All", ...new Set(newVal)]);
   };
 
   // category wise data
@@ -33,6 +33,24 @@ const FilterSection = () => {
             onChange={updateFilterValue}
           />
         </form>
+      </div>
+      <div className="filter-category">
+        <h3>Category</h3>
+        <div>
+          {categoryOnlyData.map((curElem, index) => {
+            return (
+              <button
+                key={index}
+                type="button"
+                name="category"
+                value={category}
+                onClick={updateFilterValue}
+              >
+                {curElem}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </Wrapper>
   );
