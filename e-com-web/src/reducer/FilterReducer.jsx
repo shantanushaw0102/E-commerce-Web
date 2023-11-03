@@ -1,5 +1,3 @@
-import { all } from "axios";
-
 const FilterReducer = (state, action) => {
   switch (action.type) {
     case "LOAD_FILTER_PRODUCTS":
@@ -14,11 +12,13 @@ const FilterReducer = (state, action) => {
         ...state,
         grid_view: true,
       };
+
     case "SET_LIST_VIEW":
       return {
         ...state,
         grid_view: false,
       };
+
     case "GET_SORT_VALUE":
       // let userSortValue = document.getElementById("sort");
       // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
@@ -29,9 +29,9 @@ const FilterReducer = (state, action) => {
 
     case "SORTING_PRODUCTS":
       let newSortData;
+      // let tempSortProduct = [...action.payload];
 
       const { filter_products, sorting_value } = state;
-
       let tempSortProduct = [...filter_products];
 
       const sortingProducts = (a, b) => {
@@ -61,6 +61,7 @@ const FilterReducer = (state, action) => {
 
     case "UPDATE_FILTERS_VALUE":
       const { name, value } = action.payload;
+
       return {
         ...state,
         filters: {
@@ -73,13 +74,31 @@ const FilterReducer = (state, action) => {
       let { all_products } = state;
       let tempFilterProduct = [...all_products];
 
-      const { text } = state.filters;
+      const { text, category, company, color } = state.filters;
+
       if (text) {
         tempFilterProduct = tempFilterProduct.filter((curElem) => {
           return curElem.name.toLowerCase().includes(text);
         });
       }
 
+      if (category !== "all") {
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.category === category
+        );
+      }
+
+      if (company !== "all") {
+        tempFilterProduct = tempFilterProduct.filter(
+          (curElem) => curElem.company.toLowerCase() === company.toLowerCase()
+        );
+      }
+
+      if (color) {
+        tempFilterProduct = tempFilterProduct.filter((curElem) =>
+          curElem.colors.includes(color)
+        );
+      }
       return {
         ...state,
         filter_products: tempFilterProduct,
