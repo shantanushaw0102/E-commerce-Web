@@ -13,9 +13,10 @@ import AddToCart from "./components/AddToCart";
 
 const API = "https://api.pujakaitem.com/api/products";
 
+//const API = "http://localhost:5000/api/data";
+
 const SingleProduct = () => {
-  const { getSingleProduct, isSingleLoading, singleProduct } =
-    useProductContext();
+  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
 
   const { id } = useParams();
 
@@ -78,7 +79,7 @@ const SingleProduct = () => {
 
               <div className="product-warranty-data">
                 <TbTruckDelivery className="warranty-icon" />
-                <p>Thapa Delivered </p>
+                <p> Delivered </p>
               </div>
 
               <div className="product-warranty-data">
