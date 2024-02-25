@@ -11,6 +11,12 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+
+
+https://github.com/shantanushaw0102/E-commerce-Web/assets/93922419/b36e39da-5244-4704-9de5-b2aa88cad96e
+
+
+
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
